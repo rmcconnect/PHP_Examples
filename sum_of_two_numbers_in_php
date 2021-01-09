@@ -1,0 +1,49 @@
+<?php
+/*Checking form is submit or not*/
+if(isset($_POST['check']))
+{
+  /*Declaration of variable*/
+  $no1 = $_POST['no1'];
+  $no2 = $_POST['no2'];
+  $result = $_POST['result'];
+  /*Check the values getting from form are number or string*/
+  if(is_numeric($no1) && is_numeric($no2))
+  { 
+      /*Store sum of two numbers in a variable*/
+      $sumofnumbers = $no1 + $no2;
+      /*Checking result is equal to sum of number or not*/
+      if($result==$sumofnumbers)
+      {
+        echo "<strong style='color:green;'>Yes! You are at right Place</strong>";
+      }
+      else
+      {
+        echo "<strong style='color:red;'>Dam! Wrong Calculation</strong>";
+      }
+  }
+  else
+  {
+    echo "Found String Here";
+  }
+}
+?>
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <title>Testing Based Project</title>
+ </head>
+ <body>
+ <form method="POST">
+   <table>
+     <tr>
+       <td><input type="text" name="no1" value="<?php echo rand(1,10);?>" readonly /></td>
+       <td><input type="text" name="no2" value="<?php echo rand(1,20);?>" readonly /></td>
+       <td> = <input type="text" name="result" value=""></td>
+     </tr>
+     <tr>
+      <td colspan="2"><input type="submit" name="check" value="Check Authentication"></td>
+     </tr>
+   </table>
+ </form>
+ </body>
+ </html>
